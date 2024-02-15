@@ -63,6 +63,7 @@ closeBtn.addEventListener('click', () => {
 //   },
 // ]; // end of rooms
 
+// eslint-disable-next-line no-unused-vars
 function renderProperties(properties) {
   properties.forEach((room) => {
     const roomArticle = document.createElement('article');
@@ -96,6 +97,53 @@ function renderProperties(properties) {
 //   .then((data) => {
 //     renderProperties(data);
 //   });
+const displayCategory = (category, properties) => {
+  // console.log('displaying category');
+  const sectionElement = document.createElement('section');
+  sectionElement.classList.add('category');
+
+  const sectionTitle = document.createElement('h2');
+  sectionTitle.textContent = category.label.plural;
+
+  sectionElement.appendChild(sectionTitle);
+  // 1. filter properties
+  // console.log(category.label.singular);
+  // eslint-disable-next-line max-len
+  const filteredProperties = properties.filter(
+    (property) => property.type === category.label.singular
+  );
+
+  filteredProperties.sort((a, b) => {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  });
+
+  // eslint-disable-next-line no-console
+  // console.log({ filteredProperties });
+  filteredProperties.forEach((property) => {
+    const articleElement = document.createElement('article');
+    articleElement.classList.add('property');
+
+    const propertyHTML = `
+      <h3 class = 'property--title'>${property.name}</h3>
+      <p class = 'property--description'>${property.description}</p>
+      <p class = 'property--price'>${property.price}</p>
+    `;
+
+    articleElement.innerHTML = propertyHTML;
+
+    sectionElement.appendChild(articleElement);
+  }); // end of for each
+
+  // 2. loop and render properties
+
+  document.body.appendChild(sectionElement);
+}; // end of display category
 
 Promise.all([
   // fetch 1
@@ -108,18 +156,13 @@ Promise.all([
     //   console.log({ categories });
     // })
     categories.forEach((category) => {
+      // eslint-disable-next-line no-use-before-define
       displayCategory(category, properties);
     });
   })
   .catch((error) => {
+    // eslint-disable-next-line no-console
     console.error('There was a problem fetching the data:', error);
   });
 
-const displayCategory = (category, properties) => {
-  // console.log('displaying category');
-  const sectionElement = document.createElement('section');
-  const sectionTitle = document.createElement('h2');
-  sectionTitle.textContent = category.label.plural;
-  sectionElement.appendChild(sectionTitle);
-  document.body.appendChild(sectionElement);
-}; //end of display category
+// eslint-disable-next-line no-unused-vars

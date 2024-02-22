@@ -32,8 +32,25 @@ const cars = [
   { make: 'Chevrolet', model: 'Impala', year: 2014 },
 ];
 
-const filteredCars = cars.filter((car) => {
-  return car.make === 'Ford';
-});
+const filteredCars = cars.filter((car) => car.make === 'Ford');
 
-console.log(filteredCars);
+// console.log(filteredCars);
+const filterGames = (games, monthIndex) => {
+  const filteredGames = games.filter((game) => {
+    const dateObject = new Date(game.date);
+    return dateObject.getMonth() === monthIndex;
+  });
+  console.log({ filteredGames });
+};
+
+// example 4
+// import schedule.json, then convert it to json, then do something
+fetch('js/schedule.json')
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    // console.log({ data });
+    filterGames(data, 1);
+  })
+  .catch();

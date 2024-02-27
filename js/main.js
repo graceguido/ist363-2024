@@ -2,6 +2,8 @@
 
 const menuBtn = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
+const contentDiv = document.getElementById('content');
+
 // "event name", callback function
 menuBtn.addEventListener('click', () => {
   //   console.log("clicked!");
@@ -57,7 +59,7 @@ const displayCategory = (category, properties) => {
 
   // 2. loop and render properties
 
-  document.body.appendChild(sectionElement);
+  contentDiv.appendChild(sectionElement);
 }; // end of display category
 
 Promise.all([

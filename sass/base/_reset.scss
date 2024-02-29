@@ -1,0 +1,25 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+button {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+/* gets rid of bullets */
+ul,
+li {
+  list-style: none;
+}
+/* makes padding on the outside */
+* {
+  box-sizing: border-box;
+}

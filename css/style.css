@@ -1,17 +1,3 @@
-header {
-  background-color: white;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-footer {
-  background-color: grey;
-  color: white;
-}
-
-/* resets text css properties */
 html,
 body,
 h1,
@@ -40,12 +26,54 @@ li {
   box-sizing: border-box;
 }
 
-:root {
-  --airbnb-pink: #ff385c;
+body {
+  background-color: lightgray;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
 }
 
-body {
-  background-color: #d74100;
+h1 {
+  font-size: 3rem;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  color: red;
+}
+
+h3 {
+  font-size: 2rem;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  color: red;
+}
+
+p {
+  font-size: 1rem;
+  font-family: Georgia, serif;
+  color: black;
+}
+
+header {
+  background-color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer {
+  background-color: grey;
+  color: white;
+}
+
+/* resets text css properties */
+:root {
+  --airbnb-pink: #ff385c;
 }
 
 /* 1rem means multiplying by the "normal" amount 

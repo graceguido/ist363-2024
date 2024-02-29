@@ -1,0 +1,23 @@
+@use '../abstracts/vars';
+h1 {
+  font-size: 3rem;
+  font-family: vars.$font__primary;
+  font-weight: bold;
+}
+h2 {
+  font-size: 2.5rem;
+  font-family: vars.$font__primary;
+  font-weight: bold;
+  color: vars.$color_red;
+}
+h3 {
+  font-size: 2rem;
+  font-family: vars.$font__primary;
+  font-weight: bold;
+  color: vars.$color_red;
+}
+p {
+  font-size: 1rem;
+  font-family: vars.$font_secondary;
+  color: black;
+}

@@ -19,10 +19,13 @@ const displayCategory = (category, properties) => {
   const sectionElement = document.createElement('section');
   sectionElement.classList.add('category');
 
+  const containerDiv = document.createElement('div');
+  containerDiv.classList.add('container');
+
   const sectionTitle = document.createElement('h2');
   sectionTitle.textContent = category.label.plural;
 
-  sectionElement.appendChild(sectionTitle);
+  containerDiv.appendChild(sectionTitle);
   // 1. filter properties
   // console.log(category.label.singular);
   // eslint-disable-next-line max-len
@@ -54,11 +57,12 @@ const displayCategory = (category, properties) => {
 
     articleElement.innerHTML = propertyHTML;
 
-    sectionElement.appendChild(articleElement);
+    containerDiv.appendChild(articleElement);
   }); // end of for each
 
   // 2. loop and render properties
 
+  sectionElement.appendChild(containerDiv);
   contentDiv.appendChild(sectionElement);
 }; // end of display category
 

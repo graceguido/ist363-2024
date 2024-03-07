@@ -17,15 +17,18 @@ closeBtn.addEventListener('click', () => {
 const displayCategory = (category, properties) => {
   // console.log('displaying category');
   const sectionElement = document.createElement('section');
-  sectionElement.classList.add('category');
+  sectionElement.classList.add('slider');
 
   const containerDiv = document.createElement('div');
-  containerDiv.classList.add('container');
+  containerDiv.classList.add('slider__container');
 
-  const sectionTitle = document.createElement('h2');
-  sectionTitle.textContent = category.label.plural;
+  const sliderGrid = document.createElement('div');
+  sliderGrid.classList.add('slider__grid');
 
-  containerDiv.appendChild(sectionTitle);
+  // const sectionTitle = document.createElement('h2');
+  // sectionTitle.textContent = category.label.plural;
+
+  // containerDiv.appendChild(sectionTitle);
   // 1. filter properties
   // console.log(category.label.singular);
   // eslint-disable-next-line max-len
@@ -47,9 +50,9 @@ const displayCategory = (category, properties) => {
   // console.log({ filteredProperties });
   filteredProperties.forEach((property) => {
     const articleElement = document.createElement('article');
-    articleElement.classList.add('property');
+    articleElement.classList.add('slider__item');
 
-    const propertyHTML = `
+    let propertyHTML = `
       <h3 class = 'property--title'>${property.name}</h3>
       <p class = 'property--description'>${property.description}</p>
       <p class = 'property--price'>${property.price}</p>
@@ -57,11 +60,12 @@ const displayCategory = (category, properties) => {
 
     articleElement.innerHTML = propertyHTML;
 
-    containerDiv.appendChild(articleElement);
+    sliderGrid.appendChild(articleElement);
   }); // end of for each
 
   // 2. loop and render properties
 
+  containerDiv.appendChild(sliderGrid);
   sectionElement.appendChild(containerDiv);
   contentDiv.appendChild(sectionElement);
 }; // end of display category
